@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<style>
+		body {
+    		background-color: black;
+		}
+		text {
+			font-family: "Helvetica-Neue", Helvetica, sans-serif;
+			fill: white;
+		}
+
+		.title {
+			font-size: 24px;
+		}
+
+		#rep {
+			background: #FF0000;
+    		color: #ffffff;
+		}
+
+		#dem {
+			background: #0099cc;
+    		color: #ffffff;
+		}
+
+		.btn-xlarge {
+			left:-935px;
+			top: -375px;
+    		padding: 5px 15px;
+    		font-size: 22px; //change this to your desired size
+    		line-height: normal;
+    		-webkit-border-radius: 8px;
+      		 -moz-border-radius: 8px;
+            border-radius: 8px;
+		}
+
+		.legend {                                             
+        	font-size: 12px;                                          
+      	}                                                        
+      
+      	rect {   
+			stroke-width: 2;                                          
+      	}    
+
+		.county-boundary {
+			stroke: black;
+			stroke-width: 1px;
+		}
+
+		.county-boundary.bern {
+			fill: #a1d99b;	
+		}
+
+		.county-boundary.hill {
+			fill: #a6bddb;	
+		}
+
+		.county-boundary.trump {
+			fill: #1b9e77;		
+		}
+
+		.county-boundary.cruz {
+			fill: #d95f02;		
+		}
+		.county-boundary.rubio {
+			fill: #7570b3;	
+		}
+
+		.county-boundary-active {
+			fill: #ffeda0;	
+		}
+
+		#demtooltip, #reptooltip {
+	        position: absolute;
+	        width: 200px;
+	        height: auto;
+	        padding: 10px;
+	        background-color: rgba(0, 0, 0, 0.85);
+	        opacity: 0.9;
+	        -webkit-border-radius: 10px;
+	        -moz-border-radius: 10px;
+	        border-radius: 10px;
+	        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+	        pointer-events: none;
+		}
+
+		#demtooltip.hidden {
+        	display: none;
+		}
+
+		#reptooltip.hidden {
+			display: none;
+		}
+
+		#demtooltip p, #reptooltip p {
+	        margin: 0;
+	        font-family: sans-serif;
+	        font-size: 16px;
+	        line-height: 20px;
+	        color: white;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<script src="//d3js.org/d3.v3.min.js"></script>
+	<script src="//d3js.org/topojson.v1.min.js"></script>
+	<script src="/script.js"></script>
+
+	<div class="btn-group" role="group">
+	  <button id="rep" type="button" class="btn btn-xlarge" onclick="initializeRep()">Republicans</button>
+	  <button id="dem" type="button" class="btn btn-xlarge" onclick="initializeDem()">Democrats</button>
+	</div>
+
+	<div id="demtooltip" class="hidden">
+    	<p> <strong><span id="county">Important Label Heading</strong></span></strong></p>
+        <p><strong><span>Winner: </span><span id="winner">Important Label Heading</strong></span></strong></p>
+        <p><span>Hillary Clinton: </span><span id="hillary">100</span>%</p>
+        <p><span>Bernie Sanders: </span><span id="bernie">100</span>%</p>
+	</div>
+
+	<div id="reptooltip" class="hidden">
+        <p> <strong><span id="county">Important Label Heading</strong></span></strong></p>
+        <p><strong><span>Winner: </span><span id="winner">Important Label Heading</strong></span></strong></p>
+        <p><span>Donald Trump: </span><span id="donald">100</span></p>
+        <p><span>Ted Cruz: </span><span id="ted">100</span></p>
+        <p><span>Marco Rubio: </span><span id="marco">100</span></p>
+        <p><span>Ben Carson: </span><span id="ben">100</span></p>
+	</div>
+
+</body>
+</html>
